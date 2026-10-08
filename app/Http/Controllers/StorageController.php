@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\storage;
+use App\Models\Storage;
 use App\Models\Product;
 use App\Models\Dep;
 use App\Http\Requests\StorestorageRequest;
@@ -20,11 +20,11 @@ class StorageController extends Controller
         $id = Storage::where('amount', 0)->value('id');
 
         $emptychick = Storage::where('amount', 0)->get();
- 
+
         if($emptychick){
- 
+
          storage::destroy($id);
- 
+
         }
 
         $index = storage::paginate(10);
@@ -53,7 +53,7 @@ class StorageController extends Controller
 
 
           ]);
-        
+
           return redirect()->route( route: 'stor.index');
 
     }
@@ -75,8 +75,8 @@ class StorageController extends Controller
         }
         return response()->json(['products' => $products], 200);
     }
-    
-    
+
+
 
     /**
      * Update the specified resource in storage.
@@ -129,11 +129,11 @@ class StorageController extends Controller
     public function destroy(StorestorageRequest $request)
     {
         $id=$request->delete_id;
- 
+
         storage::destroy($id);
 
         return redirect()->route( route: 'stor.index');
-    
+
     }
 
     public function destroyAll(StorestorageRequest $request)
@@ -142,14 +142,14 @@ class StorageController extends Controller
         if ($request->has('items')) {
             // حذف العناصر المحددة
             storage::whereIn('id', $request->items)->delete();
-            
+
             // إعادة توجيه مع رسالة نجاح
             return redirect()->route( route: 'stor.index');
         }
-        
+
         // إعادة توجيه مع رسالة خطأ في حالة عدم تحديد أي عنصر
         return redirect()->route( route: 'stor.index');
         // إعادة توجيه مع رسالة خطأ في حالة عدم تحديد أي عنصر
-       
+
     }
 }

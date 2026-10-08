@@ -1,66 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Inventory & Storage Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+An early Laravel project focused on inventory and storage management. It handles products, quantities, categories, departments, stock movement, users, reports, and related calculations — one of the projects that helped build a strong foundation in Laravel, Eloquent, relational databases, authentication, and business logic. It represents an earlier stage of the development journey rather than the current architecture style.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Managing warehouse inventory and tracking stock exchanges between different departments is a crucial operational requirement for organizations. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This system provides a centralized platform to manage:
+- **Inventory Stock:** Monitoring current product quantities, item codes, and stock levels.
+- **Stock Movement (Exchange):** Handling product distribution, issuing items to various departments, and managing quantities seamlessly.
+- **Reporting & Filtering:** Inspecting historical operations, tracking stock movement by date ranges or product codes, and generating administrative insights.
+- **User Authentication & Control:** Secure multi-user access backed by Laravel authentication mechanisms.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Screenshots
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Dashboard
+![Dashboard](public/images/screenshots/dashboard.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Inventory Management
+![Inventory](public/images/screenshots/inventory.png)
 
-## Laravel Sponsors
+### Stock Exchange & Operations
+![Export Product](public/images/screenshots/export-product.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Reports & Analytics
+![Reports](public/images/screenshots/reports.png)
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Features
 
-## Contributing
+### Inventory & Stock Tracking
+- Comprehensive management of items, including product names, unique codes, and real-time quantity tracking.
+- Automated updates to stock counts upon issuing or receiving products.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Stock Exchange / Movement
+- Dedicated workflow to issue and transfer products from the main inventory to specific internal departments.
+- Transaction validation ensuring sufficient stock quantities before executing export or exchange operations.
 
-## Code of Conduct
+### Advanced Reports & Filtering
+- Dynamic report generation system.
+- Filter operations flexibly by **Operation Date** (from-date to-date ranges) or by specific **Product Codes**.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### User Management & Authentication
+- Secure login and registration powered by Laravel Breeze and Sanctum.
+- Role-based interaction controlling access to warehouse actions, inventory adjustments, and system reports.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Architecture & Design Approach
 
-## License
+While this project represents an earlier stage in the developer's architectural journey, it implements solid backend foundations using standard Laravel conventions:
+- **Eloquent ORM:** Leveraging relational database mappings to handle complex relationships between products, departments, and stock movements.
+- **Database Migrations & Seeders:** Structured schema management using clean relational database principles.
+- **Request Validation:** Form Request classes are utilized to validate incoming input data securely before touching the database logic.
+- **UI Integration:** Built with a clean administrative dashboard layout (AdminLTE integrated with Laravel UI/Breeze) to maximize usability and operational clarity.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## Technology Stack
+
+| Technology | Purpose |
+| :--- | :--- |
+| **PHP 8.1+** | Backend Programming Language |
+| **Laravel 10** | Core Application Framework |
+| **AdminLTE / Bootstrap** | Administrative Dashboard UI Theme |
+| **Laravel Breeze / UI** | Authentication Scaffolding |
+| **MySQL / Relational DB** | Database Management & Relations |
+
+---
+
+## Project Structure
+
+The project follows the standard expressive structure of Laravel applications, organized neatly across controllers, models, views, and migrations:
+
+```text
+app/
+├── Http/
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Requests/
+├── Models/
+└── ...
+
+database/
+├── migrations/
+├── seeders/
+└── factories/
+
+public/
+└── images/
+    └── screenshots/
+
+resources/
+├── views/
+└── js / css
+
+routes/
+└── web.php
